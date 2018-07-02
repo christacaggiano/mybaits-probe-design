@@ -1,0 +1,16 @@
+twoBitReadSeqFrag in chr2 end (242446030) >= seqSize (242193529)
+Traceback (most recent call last):
+  File "run.py", line 21, in <module>
+    cpgs = load_cpgs(bed_file, cpgs_per_region, tissue)
+  File "/ye/zaitlenlabstore/christacaggiano/cfDNA_project/probes/src/utils/io.py", line 24, in load_cpgs
+    cpgs[(chrom, start, end)] = MethylRead(chrom, start, end, strand, tissue)
+  File "/ye/zaitlenlabstore/christacaggiano/cfDNA_project/probes/src/design/MethylRead.py", line 15, in __init__
+    self.reference = self.get_reference()
+  File "/ye/zaitlenlabstore/christacaggiano/cfDNA_project/probes/src/design/MethylRead.py", line 43, in get_reference
+    result = subprocess.check_output(cmd)
+  File "/netapp/home/christacaggiano/anaconda3/envs/py36/lib/python3.6/subprocess.py", line 336, in check_output
+    **kwargs).stdout
+  File "/netapp/home/christacaggiano/anaconda3/envs/py36/lib/python3.6/subprocess.py", line 418, in run
+    output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/ye/zaitlenlabstore/christacaggiano/twoBit/twoBitToFa', '/ye/zaitlenlabstore/christacaggiano/twoBit/hg38.2bit', 'stdout', '-seq=chr2', '-start=242445779', '-end=242446030']' returned non-zero exit status 255.
+finished

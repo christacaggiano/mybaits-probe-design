@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "run.py", line 21, in <module>
+    cpgs = load_cpgs(bed_file, cpgs_per_region, tissue)
+  File "/ye/zaitlenlabstore/christacaggiano/cfDNA_project/probes/src/utils/io.py", line 24, in load_cpgs
+    cpgs[(chrom, start, end)] = MethylRead(chrom, start, end, strand, tissue)
+  File "/ye/zaitlenlabstore/christacaggiano/cfDNA_project/probes/src/design/MethylRead.py", line 10, in __init__
+    self.start = int(start)
+ValueError: invalid literal for int() with base 10: 'start '
+finished

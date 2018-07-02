@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "run.py", line 20, in <module>
+    sam_file = open_sam(sam_file)
+  File "/ye/zaitlenlabstore/christacaggiano/cfDNA_project/probes/src/utils/io.py", line 8, in open_sam
+    return pysam.AlignmentFile(sam_file, "r")
+  File "pysam/libcalignmentfile.pyx", line 729, in pysam.libcalignmentfile.AlignmentFile.__cinit__
+  File "pysam/libcalignmentfile.pyx", line 930, in pysam.libcalignmentfile.AlignmentFile._open
+  File "pysam/libchtslib.pyx", line 364, in pysam.libchtslib.HTSFile.check_truncation
+OSError: no BGZF EOF marker; file may be truncated

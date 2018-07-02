@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "run.py", line 41, in <module>
+    write_patterns(cpg, cpg_patterns, pattern)
+  File "/ye/zaitlenlabstore/christacaggiano/cfDNA_project/probes/src/utils/io.py", line 112, in write_patterns
+    for pattern in pattern_list: 
+NameError: name 'pattern_list' is not defined

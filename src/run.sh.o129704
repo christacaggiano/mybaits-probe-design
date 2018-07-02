@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "run.py", line 21, in <module>
+    cpgs = load_cpgs(bed_file, cpgs_per_region, tissue)
+  File "/ye/zaitlenlabstore/christacaggiano/cfDNA_project/probes/src/utils/io.py", line 20, in load_cpgs
+    chrom, start, end, strand = splitline[:4]
+ValueError: not enough values to unpack (expected 4, got 3)
