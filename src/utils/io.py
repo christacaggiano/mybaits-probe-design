@@ -73,6 +73,8 @@ def fetch_reads(reference, sam_file):
 
     cpg_start = int(reference.start + (reference.size-1)/2) 
     cpg_end = cpg_start + 1
+    
+    print(reference.sequence[cpg_start-1:cpg_end+1])
 
     mapped_reads = sam_file.fetch(region=reference.chrom + ":" + str(cpg_start) + "-" + str(cpg_end))
 
@@ -86,7 +88,7 @@ def fetch_reads(reference, sam_file):
 
       
         if pos[-1]-pos[0]+1 == len(cfdna_read.query_sequence):
-            cpg_reads.append(MethylRead(reference.chrom, pos[0], pos[-1], cfdna_read.is_reverse,  reference.tissue, cfdna_read.query_sequence, read_number))
+            cpg_reads.append(MethylRead(reference.chrom, pos[0], pos[-1], cfdna_read.is_reverse,  reference.tissue, cfdna_read.query_sequence, read_number, cpg_start))
             read_number += 1
         else: 
             fails +=1 
@@ -97,6 +99,7 @@ def fetch_reads(reference, sam_file):
 def write_patterns(cpg, patterns_list, out):
     quantified_patterns = quantify_patterns(patterns_list) 
     
+
     pattern_header = "> " + str(cpg.name) + "("
     cpg_number = 1 
     for cpg in quantified_patterns:

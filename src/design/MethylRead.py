@@ -1,7 +1,7 @@
 import subprocess
 
 class MethylRead: 
-    def __init__(self, chrom, start, end, strand, tissue, sequence=None, read_number=None):
+    def __init__(self, chrom, start, end, strand, tissue, sequence=None, read_number=None, cpg_of_interest=None):
         
         self.name = str(chrom) + ":" + str(start) + "-" + str(end)
         self.tissue = tissue
@@ -20,6 +20,7 @@ class MethylRead:
 
         self.cpg_locations = self.identify_cpgs()
         self.cpg_number = len(self.cpg_locations)
+        self.cpg_of_interest = read_number if read_number is not None else None
 
     def __str__(self):
         return self.name
@@ -57,9 +58,8 @@ class MethylRead:
     def identify_cpgs(self): 
 
         cpg_positions = [] 
-
         for i in range(len(self.reference)-1):
-            if self.reference[i] == "C" and self.reference[i+1] == "G": 
+            if self.reference[i] == "C" and self.reference[i+1] == "G":
                 cpg_positions.append(i) 
 
         return cpg_positions 

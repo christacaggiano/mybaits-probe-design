@@ -19,12 +19,10 @@ if __name__ == "__main__":
 
     sam_file = open_sam(sam_file)
     cpgs = load_cpgs(bed_file, cpgs_per_region, tissue)
-    # print(cpgs)
     
     all_fails = 0 
     with open(output_file, "w") as out, open(pattern_file, "w") as pattern:
-
-        for cpg in cpgs:
+        for cpg in cpgs:    
             write_output(cpg, out, "reference") 
             write_output(cpg, out, "methylated")
 

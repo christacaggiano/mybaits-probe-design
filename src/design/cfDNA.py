@@ -21,7 +21,7 @@ def align_read(reference, read):
 
     read.sequence = aligned_string
 
-    return reference.methylated + "\n" + mark_alignment(reference.sequence, aligned_string) + "\n" + aligned_string
+    return reference.sequence + "\n" + mark_alignment(reference.sequence, aligned_string) + "\n" + aligned_string
 
 def mark_alignment(reference_string, read_string): 
 
@@ -38,6 +38,8 @@ def mark_alignment(reference_string, read_string):
     return alignment_indicators
 
 def find_cpg_pattern(read, reference): 
+    print(reference.cpg_locations)
+    print(reference.sequence[124])
 
     locations = reference.cpg_locations
     d  = defaultdict(lambda: ".", {"-":"-", "C":"1", "T":"0"})
