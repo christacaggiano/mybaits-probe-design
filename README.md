@@ -1,7 +1,8 @@
 # cell-free DNA methylation biomarker discovery in ALS
 ## Mybaits probe capture design
-### Summer 2018
+## Summer 2018
 
+________________________________________________________________
 
 ## Project Goal
 
