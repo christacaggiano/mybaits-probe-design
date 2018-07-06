@@ -62,11 +62,11 @@ Sample Entry:
 TGCTCCCTCTCTGGTTAAAGGGCATCCTGAGGGCCACATTAAGTCACAAAACATCATTTTGATTCAGGAACCAGAAGTCCAAGATTTCAATCAACACTTTCATCTGCTATTTAGTCAACTTCATGGAGATCTACTTTACATACAATAAACCACATCCGTGTAAAGTACACAAGCGGGTGAGTGTGACCACCCCCTTGAAGCTGCCACCACAGCCAGGACGGTGCCCGGTCCCACACAGCTGCCAGCACTCG
 >chr1:1093248-1093499|number_of_cpgs=5|tissue=muscle|fully_converted_methylated
 TGTTTTTTTTTTGGTTAAAGGGTATTTTGAGGGTTATATTAAGTTATAAAATATTATTTTGATTTAGGAATTAGAAGTTTAAGATTTTAATTAATATTTTTATTTGTTATTTAGTTAATTTTATGGAGATTTATTTTATATATAATAAATTATATTCGTGTAAAGTATATAAGCGGGTGAGTGTGATTATTTTTTTGAAGTTGTTATTATAGTTAGGACGGTGTTCGGTTTTATATAGTTGTTAGTATTCG
->chr1:1093282-1093374|read_number=1
+>chr1:1093282-1093374|read_number=1 |reverse_strand
 TGCTCCCTCTCTGGTTAAAGGGCATCCTGAGGGCCACATTAAGTCACAAAACATCATTTTGATTCAGGAACCAGAAGTCCAAGATTTCAATCAACACTTTCATCTGCTATTTAGTCAACTTCATGGAGATCTACTTTACATACAATAAACCACATCCGTGTAAAGTACACAAGCGGGTGAGTGTGACCACCCCCTTGAAGCTGCCACCACAGCCAGGACGGTGCCCGGTCCCACACAGCTGCCAGCACTCG
                                   .|||||||.|||||||||||||||||.|||||..|||||.||.|||||.||||||||||||||||||||||.|||||||.||||||||||..                                                                                                                             
 ----------------------------------GACATTAAATCACAAAACATCATTTTAATTCAAAAACCAAAAATCCAAAATTTCAATCAACACTTTCATCTACTATTTAATCAACTTCATAA-----------------------------------------------------------------------------------------------------------------------------
->chr1:1093282-1093374|read_number=2
+>chr1:1093282-1093374|read_number=2|forward_strand
 TGCTCCCTCTCTGGTTAAAGGGCATCCTGAGGGCCACATTAAGTCACAAAACATCATTTTGATTCAGGAACCAGAAGTCCAAGATTTCAATCAACACTTTCATCTGCTATTTAGTCAACTTCATGGAGATCTACTTTACATACAATAAACCACATCCGTGTAAAGTACACAAGCGGGTGAGTGTGACCACCCCCTTGAAGCTGCCACCACAGCCAGGACGGTGCCCGGTCCCACACAGCTGCCAGCACTCG
                                   .|.|||||||.|.||||.||.|||||||||.|||||..||||||..|||||||.|||.||.|.|||.||.||.||||||||.||.||.||||                                                                                                                             
 ----------------------------------TATATTAAGTTATAAAATATTATTTTGATTTAGGAATTAGAAGTTTAAGATTTTAATTAATATTTTTATTTGTTATTTAGTTAATTTTATGG-----------------------------------------------------------------------------------------------------------------------------
@@ -75,8 +75,41 @@ TGCTCCCTCTCTGGTTAAAGGGCATCCTGAGGGCCACATTAAGTCACAAAACATCATTTTGATTCAGGAACCAGAAGTCC
 ### Patterns file
 
 * Extension `_patterns_all.txt`
-* Binary representation of the CpG patter
+* Binary representation of the CpG patterning in a given region around a CpG of interest for all the reads covering that CpG
+* This file illustrates the variability of the cfDNA reads covering a region
+  - 0 = Unmethylated observation for read
+  - 1 = Methylated observation for read
+  - "-" =  not covered by read
+  - "." = read covered, but it is an incorrect base
+* Header gives the genomic range covered, and % methylated for each CpG in locus. NA indicates no reads covered that CpG. " * " indicates CpG of interest
+  - Ex: `> chr1:7224041-7224292(cpg*1*: 0.781, cpg2: 0.962, cpg3: NA)`
 
+Sample entry:
+```
+> chr1:110347251-110347502(cpg1: 1.0, cpg*2*: 0.891, cpg3: 0.985, cpg4: 0.969, cpg5: 0.99, cpg6: 0.969, cpg7: 1.0)
+111----
+111----
+111----
+111----
+111----
+111----
+111----
+111----
+1111---
+1010---
+1111---
+1011---
+1011---
+1111---
+1111---
+1111---
+--10111
+--11111
+--.1111
+--.1111
+--11111
+--11111
+```
 
 ## References
 <b id="f1">1</b> Rahmani et al. Nat Methods 2017 ["Sparse PCA Corrects for Cell-Type Heterogeneity in Epigenome-Wide Association Studies](https://www-ncbi-nlm-nih-gov.ucsf.idm.oclc.org/pmc/articles/PMC5548182/)
